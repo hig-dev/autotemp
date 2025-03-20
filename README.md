@@ -58,10 +58,10 @@ autotemp.exe --interval 2500 --floor 35 --ramp 66 --max 90 --step 5 --path "C:\t
 - **`--floor [0-100]`**  
   Minimum fan speed percentage. Default is `35`.
 
-- **`--ramp [°C]`**  
+- **`--ramp [Â°C]`**  
   CPU temperature at which fan speed begins to increase. Default is `66`.
 
-- **`--max [°C]`**  
+- **`--max [Â°C]`**  
   CPU temperature at which fan speed is set to 100%. Default is `90`.
 
 - **`--step [percentage]`**  
@@ -76,10 +76,10 @@ autotemp.exe --interval 2500 --floor 35 --ramp 66 --max 90 --step 5 --path "C:\t
 
 ## Running Automatically Using Windows Task Scheduler
 
-This task requires administrative privileges.
+The IPMICFG tool requires administrative privileges to send raw IPMI commands.
 
    - Create a task that runs with highest privileges.
-   - Set triggerr for "At startup".
+   - Set a trigger for "At startup".
    - Set action to "Start a program" and point to the compiled executable.
 
 ## License
@@ -92,4 +92,3 @@ This project is provided under the MPL 2.0. License. See [LICENSE](LICENSE) for 
   Thanks to the LibreHardwareMonitor project for providing easy access to hardware sensor data.
 - **SuperMicro:**  
   For the IPMICFG tool.
-
