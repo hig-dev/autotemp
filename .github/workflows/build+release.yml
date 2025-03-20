@@ -21,7 +21,11 @@ jobs:
       - name: Publish project
         run: dotnet publish --configuration Release /p:PublishProfile=FolderProfile
 
-      - name: Create Release
+      - name: Create ZIP of published files
+        run: |
+          Compress-Archive -Path "bin\Release\net9.0\publish\win-x64\*" -DestinationPath autotemp.zip -Force
+
+      - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
@@ -30,9 +34,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Release Assets
+      - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: bin/Release/net9.0/publish/win-x64/**
+          files: autotemp.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
