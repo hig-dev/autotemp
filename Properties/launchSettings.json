@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "autotemp": {
+      "commandName": "Project",
+      "commandLineArgs": "-v"
+    }
+  }
+}
